@@ -1,6 +1,6 @@
+import 'dotenv/config';
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
-
 const databaseUrl =
   process.env.DATABASE_URL ||
   "postgresql://postgres:postgres@127.0.0.1:5432/app_db";
@@ -13,6 +13,7 @@ export const pool =
   globalForDb.__arenaNextJsPostgresqlPool ??
   new Pool({
     connectionString: databaseUrl,
+    ssl: true,
   });
 
 if (process.env.NODE_ENV !== "production") {

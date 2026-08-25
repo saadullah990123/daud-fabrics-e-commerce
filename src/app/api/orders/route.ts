@@ -52,20 +52,70 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
+    if (paymentMethod !== "cod" && !paymentScreenshot) {
+  return NextResponse.json(
+    { success: false, error: "Please upload payment proof to continue" },
+    { status: 400 }
+  );
+}
+// Validate and fetch official prices and stock from the database
+    let calculatedSubtotal = 0;
+    const validatedItems = [];
 
-    // Calculate subtotal
-    const subtotal = items.reduce(
-      (sum: number, item: { price: number; quantity: number }) =>
-        sum + (Number(item.price) || 0) * (Number(item.quantity) || 1),
-      0
-    );
+    for (const item of items) {
+      if (!item.productId) {
+        return NextResponse.json(
+          { success: false, error: "Invalid product item reference" },
+          { status: 400 }
+        );
+      }
+
+      // Fetch official product details from database
+      const [dbProduct] = await db
+        .select()
+        .from(products)
+        .where(eq(products.id, item.productId))
+        .limit(1);
+
+      if (!dbProduct) {
+        return NextResponse.json(
+          { success: false, error: `Product not found in database` },
+          { status: 400 }
+        );
+      }
+
+const requestedQuantity = Number(item.quantity);
+if (!Number.isInteger(requestedQuantity) || requestedQuantity <= 0) {
+  return NextResponse.json(
+    { success: false, error: "Invalid item quantity" },
+    { status: 400 }
+  );
+}
+      // Check stock availability
+      if (dbProduct.stock < requestedQuantity) {
+        return NextResponse.json(
+          { success: false, error: `Insufficient stock for ${dbProduct.name}. Only ${dbProduct.stock} left.` },
+          { status: 400 }
+        );
+      }
+
+      // Always use the server-side price from the database, never trust the client
+      const officialPrice = Number(dbProduct.price);
+      calculatedSubtotal += officialPrice * requestedQuantity;
+
+      validatedItems.push({
+        ...item,
+        price: officialPrice, // enforce secure price
+        name: dbProduct.name,
+      });
+    }
+
+    const subtotal = calculatedSubtotal;
 
     // Free shipping if >= Rs 3000
     const shippingFee = subtotal >= 3000 || subtotal === 0 ? 0 : 250;
     const discount = 0;
     const totalAmount = subtotal + shippingFee - discount;
-
-    // Generate unique order number (e.g. DF-59124)
     const randomSuffix = Math.floor(10000 + Math.random() * 90000);
     const orderNumber = `DF-${randomSuffix}`;
 
@@ -81,7 +131,7 @@ export async function POST(request: NextRequest) {
         city: city.trim(),
         postalCode: postalCode ? postalCode.trim() : null,
         orderNotes: orderNotes ? orderNotes.trim() : null,
-        items: JSON.stringify(items),
+                items: JSON.stringify(validatedItems),
         subtotal,
         shippingFee,
         discount,
@@ -94,7 +144,7 @@ export async function POST(request: NextRequest) {
       .returning();
 
     // Decrement stock for ordered products
-    for (const item of items) {
+  for (const item of validatedItems) {
       if (item.productId) {
         try {
           await db
