@@ -7,19 +7,26 @@ export async function seedDatabase() {
   try {
     // Check if products already exist
     const [{ value: productCount }] = await db.select({ value: count() }).from(products);
-    
-    // Seed Admin if not exists
-    const [{ value: adminCount }] = await db.select({ value: count() }).from(admins);
-    if (Number(adminCount) === 0) {
-      const passwordHash = await bcrypt.hash("admin123", 10);
-      await db.insert(admins).values({
-        email: "admin@daudfabrics.pk",
-        passwordHash,
-        name: "Daud Ahmed (Admin)",
-        role: "admin",
-      });
-      console.log("Seed: Admin account created (admin@daudfabrics.pk / admin123)");
-    }
+ 
+   // Seed Admin if not exists
+const [{ value: adminCount }] = await db.select({ value: count() }).from(admins);
+if (Number(adminCount) === 0) {
+  const seedEmail = process.env.SEED_ADMIN_EMAIL;
+  const seedPassword = process.env.SEED_ADMIN_PASSWORD;
+  if (!seedEmail || !seedPassword) {
+    throw new Error(
+      "SEED_ADMIN_EMAIL and SEED_ADMIN_PASSWORD must be set in .env to seed the admin account."
+    );
+  }
+  const passwordHash = await bcrypt.hash(seedPassword, 10);
+  await db.insert(admins).values({
+    email: seedEmail,
+    passwordHash,
+    name: "Daud Ahmed (Admin)",
+    role: "admin",
+  });
+  console.log(`Seed: Admin account created (${seedEmail})`);
+}
 
     // Seed Store Settings if not exists
     const [{ value: settingsCount }] = await db.select({ value: count() }).from(storeSettings);

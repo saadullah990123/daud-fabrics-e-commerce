@@ -5,7 +5,13 @@ import { admins } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 
-const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || "daud_fabrics_admin_secret_key_2025_pakistan_luxury_textiles_secure";
+const SESSION_SECRET: string = (() => {
+  const secret = process.env.ADMIN_SESSION_SECRET;
+  if (!secret) {
+    throw new Error("ADMIN_SESSION_SECRET environment variable is not set.");
+  }
+  return secret;
+})();
 const COOKIE_NAME = "daud_admin_session";
 const SESSION_MAX_AGE = 7 * 24 * 60 * 60; // 7 days in seconds
 
