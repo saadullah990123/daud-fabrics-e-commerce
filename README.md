@@ -157,16 +157,19 @@ Visit **`http://localhost:3000`** for the storefront, and **`http://localhost:30
 <div align="center">
 
 ### 🏠 Homepage
-![Homepage](screenshots/homepage.png)
+<img width="1907" height="900" alt="image" src="https://github.com/user-attachments/assets/0c96024e-d0a8-4ec0-9b17-f0d0f8777ec1" />
+<img width="1785" height="902" alt="image" src="https://github.com/user-attachments/assets/871dedda-14cb-4e90-8da3-c6542e9b18c8" />
 
 ### 📦 Product Page
-![Product Page](screenshots/product-page.png)
+<img width="1782" height="887" alt="image" src="https://github.com/user-attachments/assets/e80b25d6-0f0c-4ca1-8c5b-86a5c5c1e1ec" />
+
 
 ### 🛒 Cart & Checkout
-![Cart](screenshots/cart.png)
+<img width="1845" height="897" alt="image" src="https://github.com/user-attachments/assets/e34f0f80-7372-4310-8007-d25370382d87" />
+<img width="1816" height="910" alt="image" src="https://github.com/user-attachments/assets/7a9f773a-e428-4944-a611-a55b992ec1ed" />
 
 ### 🔐 Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+<img width="1902" height="920" alt="image" src="https://github.com/user-attachments/assets/9584f2ab-eaa0-49ee-be16-c2f3eecd896d" />
 
 </div>
 
