@@ -1,41 +1,62 @@
+<div align="center">
+
 # 🧵 Daud Fabrics — E-Commerce Platform
 
-A full-stack e-commerce web platform for **Daud Fabrics**, a Pakistani clothing brand — featuring a public storefront with product catalogs, a shopping cart and checkout flow, order tracking, and a secure admin dashboard for managing products, orders, and store settings.
+**A full-stack e-commerce web platform for Daud Fabrics — a Pakistani clothing brand.**
 
-**Live:** [daud-fabrics-e-commerce.vercel.app](https://daud-fabrics-e-commerce.vercel.app)
+Public storefront with product catalogs, cart & checkout, order tracking, and a secure admin dashboard for managing products, orders, and store settings.
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-black?style=for-the-badge&logo=vercel)](https://daud-fabrics-e-commerce.vercel.app)
+![Next.js](https://img.shields.io/badge/Next.js%2016-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS%204-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+
+🔗 **[daud-fabrics-e-commerce.vercel.app](https://daud-fabrics-e-commerce.vercel.app)**
+
+</div>
+
+---
+
+## 📖 Overview
+
+**Daud Fabrics** is a modern, full-stack online store built with **Next.js 16 (App Router)** and **TypeScript**. It combines a fast, responsive storefront — product browsing, cart, checkout, and order tracking — with a secure, database-backed **admin dashboard** for managing the entire catalog, orders, and store configuration.
 
 ---
 
 ## ✨ Features
 
-### Storefront
-- 🛍️ **Product Catalog** — Browse by category (Men, Women, Kids) with subcategories, featured items, and bestsellers.
-- 🔍 **Search** — Quick product search via modal.
-- 🛒 **Cart & Checkout** — Persistent cart context, checkout with delivery details, and multiple payment methods (Cash on Delivery, EasyPaisa, Meezan Bank).
-- 📦 **Order Tracking** — Customers can track orders and view an order confirmation page after checkout.
-- ⭐ **Customer Reviews** — Verified customer reviews displayed on the storefront.
-- 💬 **WhatsApp Integration** — Floating WhatsApp button for quick customer contact.
-- 📱 **Responsive Design** — Built with Tailwind CSS for a smooth experience across devices.
+### 🛍️ Storefront
+- **Product Catalog** — Browse by category (Men, Women, Kids) with subcategories, featured items, and bestsellers
+- **Search** — Quick product search via modal
+- **Cart & Checkout** — Persistent cart context, checkout with delivery details, and multiple payment methods (Cash on Delivery, EasyPaisa, Meezan Bank)
+- **Order Tracking** — Customers can track orders and view an order confirmation page after checkout
+- **Customer Reviews** — Verified customer reviews displayed on the storefront
+- **WhatsApp Integration** — Floating WhatsApp button for quick customer contact
+- **Responsive Design** — Built with Tailwind CSS for a smooth experience across devices
 
-### Admin Dashboard
-- 🔐 **Secure Authentication** — Signed session tokens (HMAC), hashed passwords (bcrypt), and forgot/reset password flow.
-- 📊 **Dashboard Stats** — At-a-glance store performance overview.
-- 🧾 **Order Management** — View, update status, and manage orders (payment status, tracking number, courier info).
-- 👕 **Product Management** — Full CRUD for products, including images, pricing, stock, and featured/bestseller flags.
-- ⚙️ **Store Settings** — Manage configurable store settings from the dashboard.
+### 🔐 Admin Dashboard
+- **Secure Authentication** — Signed session tokens (HMAC), hashed passwords (bcrypt), and a forgot/reset password flow
+- **Dashboard Stats** — At-a-glance store performance overview
+- **Order Management** — View, update status, and manage orders (payment status, tracking number, courier info)
+- **Product Management** — Full CRUD for products, including images, pricing, stock, and featured/bestseller flags
+- **Store Settings** — Manage configurable store settings directly from the dashboard
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Framework:** [Next.js](https://nextjs.org/) 16 (App Router)
-- **Language:** TypeScript
-- **Database:** PostgreSQL ([Neon](https://neon.tech/))
-- **ORM:** [Drizzle ORM](https://orm.drizzle.team/)
-- **Styling:** Tailwind CSS 4
-- **Auth:** Custom HMAC-signed sessions + bcrypt password hashing
-- **Icons:** Lucide React
-- **Deployment:** Vercel
+| Layer | Technology |
+|---|---|
+| Framework | [Next.js](https://nextjs.org/) 16 (App Router) |
+| Language | TypeScript |
+| Database | PostgreSQL ([Neon](https://neon.tech/)) |
+| ORM | [Drizzle ORM](https://orm.drizzle.team/) |
+| Styling | Tailwind CSS 4 |
+| Auth | Custom HMAC-signed sessions + bcrypt password hashing |
+| Icons | Lucide React |
+| Deployment | Vercel |
 
 ---
 
@@ -68,7 +89,7 @@ scripts/
 
 ## 🗄️ Database Schema
 
-Built with Drizzle ORM against PostgreSQL:
+Built with **Drizzle ORM** against **PostgreSQL**:
 
 | Table | Purpose |
 |---|---|
@@ -114,7 +135,8 @@ npx tsx scripts/seed-run.ts
 ```bash
 npm run dev
 ```
-Visit `http://localhost:3000` for the storefront, and `http://localhost:3000/admin/login` for the admin dashboard.
+
+Visit **`http://localhost:3000`** for the storefront, and **`http://localhost:3000/admin/login`** for the admin dashboard.
 
 ---
 
@@ -130,6 +152,34 @@ Visit `http://localhost:3000` for the storefront, and `http://localhost:3000/adm
 
 ---
 
+## 📸 Preview
+
+<div align="center">
+
+### 🏠 Homepage
+![Homepage](screenshots/homepage.png)
+
+### 📦 Product Page
+![Product Page](screenshots/product-page.png)
+
+### 🛒 Cart & Checkout
+![Cart](screenshots/cart.png)
+
+### 🔐 Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+</div>
+
+---
+
 ## 📄 License
 
-This project is privately owned by Daud Fabrics. All rights reserved.
+This project is privately owned by **Daud Fabrics**. All rights reserved © 2026.
+
+---
+
+<div align="center">
+
+Made with ❤️ for **Daud Fabrics**
+
+</div>
