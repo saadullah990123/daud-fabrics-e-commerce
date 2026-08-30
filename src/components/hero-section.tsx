@@ -2,19 +2,24 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-stone-900 text-white min-h-[580px] lg:min-h-[640px] flex items-center">
-      {/* Background Image with Rich Gradient Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section className="relative overflow-hidden bg-stone-950 text-white min-h-[580px] lg:min-h-[640px] flex items-center">
+      {/* Background Image Container */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
+        style={{ backgroundImage: "url('/images/store-bg.jpg')" }}
+      >
+        {/* Fallback & Image Tag */}
         <img
-          src="/images/hero-banner.jpg"
-          alt="Daud Fabrics Luxury Pakistani Textiles"
-          className="w-full h-full object-cover object-center scale-105 transition-transform duration-10000 hover:scale-100 opacity-60"
+          src="/images/store-bg.jpg"
+          alt="Daud Fabrics Clothing Store"
+          className="w-full h-full object-cover object-center opacity-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-stone-950/90 via-stone-900/75 to-stone-950/40" />
+        {/* Balanced Dark Gradient - Keeps text 100% crisp on left while showing clothing boutique on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/35 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
