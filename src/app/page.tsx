@@ -50,11 +50,11 @@ export default async function HomePage() {
   const newArrivals = formattedProducts.slice(0, 8);
 
   const brandPartners = [
-    { name: "Gul Ahmed", logo: "/images/brands/brand1.jpg" },
-    { name: "Sapphire", logo: "/images/brands/brand2.jpg" },
-    { name: "Alkaram Studio", logo: "/images/brands/brand3.jpg" },
-    { name: "Sana Safinaz", logo: "/images/brands/brand4.jpg" },
-    { name: "Daud Exclusive", logo: "/images/brands/brand5.jpg" },
+    { name: "Alkaram Studio", logo: "/images/brands/akram.jpg" },
+    { name: "Sapphire", logo: "/images/brands/saphre.jpg" },
+    { name: "Khaadi", logo: "/images/brands/khaadi.jpg" },
+    { name: "Maria B", logo: "/images/brands/maria.jpg" },
+    { name: "Daud Exclusive", logo: "/images/brands/stitch.jpg" },
   ];
 
   return (

@@ -5,8 +5,12 @@ import { count } from "drizzle-orm";
 
 export async function seedDatabase() {
   try {
-    // Check if products already exist
+    // ⚡ PERFORMANCE: Check if products already exist — skip expensive seeding if DB is populated
     const [{ value: productCount }] = await db.select({ value: count() }).from(products);
+    if (Number(productCount) >= 30) {
+      // DB already seeded — skip all 35 upserts for instant page load
+      return;
+    }
 
     // Seed Admin if not exists
     const [{ value: adminCount }] = await db.select({ value: count() }).from(admins);
@@ -596,7 +600,7 @@ export async function seedDatabase() {
         description: "Hypoallergenic, ultra-soft 100% combed Pakistani cotton fabric specially woven for kids. Gentle on skin with vibrant festive tones.",
         details: "Fabric: 100% Combed Baby Cotton\nCutting: 2.25 Meters (Sufficient for Kurta Shalwar up to Age 12)\nWidth: 40 Inches\nFeatures: Breathable, anti-chafing, color-fast guarantee",
         stock: 35,
-        images: JSON.stringify(["/images/men/shawl4.jpg", "/images/men/shawl3.jpg"]),
+        images: JSON.stringify(["/images/women/image9.jpg", "/images/women/image12.jpg"]),
         isActive: true,
         isFeatured: true,
         isBestseller: true,
@@ -611,7 +615,7 @@ export async function seedDatabase() {
         description: "Includes delicate machine resham embroidery on collar and cuff patches with premium wash-and-wear base fabric.",
         details: "Fabric: Wash & Wear with embroidered neckline motif\nCutting: 2.5 Meters\nWidth: 40 Inches\nIdeal for: Eid, Weddings & School Traditional Day events",
         stock: 25,
-        images: JSON.stringify(["/images/men/shawl1.jpg", "/images/men/shawl2.jpg"]),
+        images: JSON.stringify(["/images/women/image13.jpg", "/images/women/image14.jpg"]),
         isActive: true,
         isFeatured: true,
         isBestseller: false,
