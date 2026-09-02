@@ -281,12 +281,12 @@ export function ProductDetailView({ product, relatedProducts }: ProductDetailVie
 
             {/* WhatsApp Question Button */}
             <a
-              href={`https://wa.me/923001234567?text=${whatsappInquiry}`}
+              href={`https://wa.me/923275363509?text=${whatsappInquiry}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 px-4 rounded-xl border border-emerald-600/30 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 text-xs font-semibold flex items-center justify-center gap-2 transition-colors mt-2"
+              className="w-full py-2.5 px-4 rounded-xl border border-emerald-500/30 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 text-xs font-semibold flex items-center justify-center gap-2 transition-colors mt-2"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
               <span>Ask Fabric Specialist on WhatsApp</span>
             </a>
           </div>
